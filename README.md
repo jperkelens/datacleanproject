@@ -15,14 +15,19 @@ The construction of the data set requires the following from the original data s
 
 #### Merging the raw data
 The tidy data is first constructed by concatenating all the rows from the different training and test data sets (measurements, subjects, activities)
+
 Once, that is built, descriptive names are added for the columns of each of the data sets. Doing this for the subjects, activity, and activity mapping is trivial.
+
 To get descriptive column names for the measurements, the feature names set is used.
+
 After that, the activity list, measurement list, and subject list are merged.
+
 Finally, the activity map and combined data set are joined to obtain descriptive names for the activities.
 
 #### Selecting and summarizing the data
 
 In order to obtain only the mean and standard deviation measurements. We select those columns that have 'mean()' or 'std()' in their column names, along with the activity name and subject columns.
+
 Using dplyr, the data is grouped by subject and activity and then each column is summarized using the mean function.
 
 
