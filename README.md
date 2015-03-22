@@ -1,33 +1,27 @@
-### Class Project for "Getting and Cleaning Data" @ Johns Hopkins - Coursera
+## Data Cleaning Project
 
 The R script in this repository creates a tidy data set from the [human activity data](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) provided  by the UCI Machine Learning Repository
 
-
 The tidy data represents the averages of all mean and standard deviation measurements for the subjects and activities measured in the study.
 
-The construction of the data set requires the following from the original data set:
+The original data is split up into multiple files:
 
-+ The measurements from the training and test sets
-+ The activities from the training and test sets
-+ The subject list from the training and test sets
-+ The measurement names
-+ The activity id to activity name mapping
++ 'train/X_train.txt': Measurement for the training set.
 
-#### Merging the raw data
-The tidy data is first constructed by concatenating all the rows from the different training and test data sets (measurements, subjects, activities)
++ 'train/y_train.txt': Activity ids for the training set.
+++ Each row corresponds to the activity being performed when the measurements were recorded
 
-Once, that is built, descriptive names are added for the columns of each of the data sets. Doing this for the subjects, activity, and activity mapping is trivial.
++ 'test/X_test.txt': Measurement for the test set.
 
-To get descriptive column names for the measurements, the feature names set is used.
++ 'test/y_test.txt': Activity ids for the test set.
+++ Each row corresponds to the activity being performed when the measurements were recorded
 
-After that, the activity list, measurement list, and subject list are merged.
++ 'train/subject_train.txt': Subject ids for the training set
+++ Each row corresponds to the subject performing the activity 
 
-Finally, the activity map and combined data set are joined to obtain descriptive names for the activities.
++ 'test/subject_train.txt': Subject ids for the test set.
+++ Each row corresponds to the subject performing the activity 
 
-#### Selecting and summarizing the data
++ 'features.txt': Ordered List of the measurements in the data sets
 
-In order to obtain only the mean and standard deviation measurements. We select those columns that have 'mean()' or 'std()' in their column names, along with the activity name and subject columns.
-
-Using dplyr, the data is grouped by subject and activity and then each column is summarized using the mean function.
-
-
++ 'activity_labels.txt': Map of activity id to activity name
